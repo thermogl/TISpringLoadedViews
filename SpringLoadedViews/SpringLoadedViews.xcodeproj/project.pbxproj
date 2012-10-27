@@ -19,6 +19,7 @@
 		E2D18ECD163C18BA0043F184 /* TISpringLoadedSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */; };
 		E2D18ECE163C18BA0043F184 /* TISpringLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */; };
 		E2D18ED1163C1A020043F184 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ED0163C1A020043F184 /* RootViewController.m */; };
+		E2D18ED8163C1C450043F184 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D18ED7163C1C450043F184 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedView.m; path = ../../TISpringLoadedView.m; sourceTree = "<group>"; };
 		E2D18ECF163C1A020043F184 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E2D18ED0163C1A020043F184 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E2D18ED7163C1C450043F184 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D18ED8163C1C450043F184 /* QuartzCore.framework in Frameworks */,
 				E2D18EAD163C18610043F184 /* UIKit.framework in Frameworks */,
 				E2D18EAF163C18610043F184 /* Foundation.framework in Frameworks */,
 				E2D18EB1163C18610043F184 /* CoreGraphics.framework in Frameworks */,
@@ -77,6 +80,7 @@
 		E2D18EAB163C18610043F184 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2D18ED7163C1C450043F184 /* QuartzCore.framework */,
 				E2D18EAC163C18610043F184 /* UIKit.framework */,
 				E2D18EAE163C18610043F184 /* Foundation.framework */,
 				E2D18EB0163C18610043F184 /* CoreGraphics.framework */,

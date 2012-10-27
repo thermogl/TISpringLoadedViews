@@ -7,12 +7,18 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	RootViewController * rootViewController = [[RootViewController alloc] init];
+	[window setRootViewController:rootViewController];
+	[rootViewController release];
+	
 	[window makeKeyAndVisible];
 	
     return YES;
