@@ -63,10 +63,10 @@
 		E28422F9163C206A0032DF66 /* TISpringLoadedViews */ = {
 			isa = PBXGroup;
 			children = (
-				E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */,
-				E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */,
 				E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */,
 				E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */,
+				E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */,
+				E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */,
 			);
 			name = TISpringLoadedViews;
 			sourceTree = "<group>";

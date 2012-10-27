@@ -13,7 +13,6 @@
 @implementation RootViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
 	
 	displayLink = [[CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)] retain];
 	[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:(id)kCFRunLoopCommonModes];

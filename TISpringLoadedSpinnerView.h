@@ -1,6 +1,6 @@
 //
 //  TISpringLoadedSpinnerView.h
-//  SpringLoadedViews
+//  TISpringLoadedViews
 //
 //  Created by Tom Irving on 27/10/2012.
 //  Copyright (c) 2012 Tom Irving. All rights reserved.
