@@ -1,5 +1,5 @@
 //
-//  TISpringLoadedRotationView.h
+//  TISpringLoadedSpinnerView.h
 //  SpringLoadedViews
 //
 //  Created by Tom Irving on 27/10/2012.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TISpringLoadedRotationView : UIView {
+@interface TISpringLoadedSpinnerView : UIView {
 	
 	CGFloat rotation;
 	CGFloat restRotation;

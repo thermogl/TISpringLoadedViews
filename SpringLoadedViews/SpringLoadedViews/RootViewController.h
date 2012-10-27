@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  RootViewController.h
 //  SpringLoadedViews
 //
 //  Created by Tom Irving on 27/10/2012.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-	UIWindow * window;
-}
+@interface RootViewController : UIViewController
 
 @end

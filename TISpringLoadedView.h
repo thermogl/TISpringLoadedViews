@@ -1,6 +1,6 @@
 //
 //  TISpringLoadedView.h
-//  SpringLoadedViews
+//  TISpringLoadedViews
 //
 //  Created by Tom Irving on 18/09/2012.
 //  Copyright (c) 2012 Tom Irving. All rights reserved.
@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^SpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
+typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
 
 typedef struct {
 	CGFloat negativeX;
 	CGFloat positiveX;
 	CGFloat negativeY;
 	CGFloat positiveY;
-} SpringLoadedViewDistanceLimits;
+} TISpringLoadedViewDistanceLimits;
 
-SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY);
+TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY);
 
-@interface SpringLoadedView : UIView {
+@interface TISpringLoadedView : UIView {
 	
 	BOOL springEnabled;
 	
@@ -29,14 +29,14 @@ SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CG
 	CGFloat mass;
 	CGPoint velocity;
 	
-	SpringLoadedViewDistanceLimits panDistanceLimits;
-	SpringLoadedViewPannedBlock pannedBlock;
+	TISpringLoadedViewDistanceLimits panDistanceLimits;
+	TISpringLoadedViewPannedBlock pannedBlock;
 	CGFloat panDragCoefficient;
 	
 	UIPanGestureRecognizer * panGestureRecognizer;
 	
-	SpringLoadedView * leftAnchoredView;
-	SpringLoadedView * rightAnchoredView;
+	TISpringLoadedView * leftAnchoredView;
+	TISpringLoadedView * rightAnchoredView;
 }
 
 @property (nonatomic, assign) BOOL springEnabled;
@@ -44,12 +44,12 @@ SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CG
 @property (nonatomic, assign) CGFloat dampingCoefficient;
 @property (nonatomic, assign) CGPoint restCenter;
 @property (nonatomic, assign) CGFloat mass;
-@property (nonatomic, assign) SpringLoadedViewDistanceLimits panDistanceLimits;
-@property (nonatomic, copy) SpringLoadedViewPannedBlock pannedBlock;
+@property (nonatomic, assign) TISpringLoadedViewDistanceLimits panDistanceLimits;
+@property (nonatomic, copy) TISpringLoadedViewPannedBlock pannedBlock;
 @property (nonatomic, assign) CGFloat panDragCoefficient;
 @property (nonatomic, readonly) BOOL panning;
-@property (nonatomic, assign) SpringLoadedView * leftAnchoredView;
-@property (nonatomic, assign) SpringLoadedView * rightAnchoredView;
+@property (nonatomic, assign) TISpringLoadedView * leftAnchoredView;
+@property (nonatomic, assign) TISpringLoadedView * rightAnchoredView;
 
 - (void)simulateSpringWithDisplayLink:(CADisplayLink *)displayLink;
 

@@ -1,15 +1,15 @@
 //
-//  TISpringLoadedRotationView.m
+//  TISpringLoadedSpinnerView.m
 //  SpringLoadedViews
 //
 //  Created by Tom Irving on 27/10/2012.
 //  Copyright (c) 2012 Tom Irving. All rights reserved.
 //
 
-#import "TISpringLoadedRotationView.h"
+#import "TISpringLoadedSpinnerView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation TISpringLoadedRotationView
+@implementation TISpringLoadedSpinnerView
 @synthesize springConstant;
 @synthesize dampingCoefficient;
 @synthesize mass;

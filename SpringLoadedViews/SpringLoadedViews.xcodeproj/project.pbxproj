@@ -16,8 +16,9 @@
 		E2D18EBF163C18610043F184 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EBE163C18610043F184 /* Default.png */; };
 		E2D18EC1163C18610043F184 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EC0163C18610043F184 /* Default@2x.png */; };
 		E2D18EC3163C18610043F184 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EC2163C18610043F184 /* Default-568h@2x.png */; };
-		E2D18ECD163C18BA0043F184 /* TISpringLoadedRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */; };
+		E2D18ECD163C18BA0043F184 /* TISpringLoadedSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */; };
 		E2D18ECE163C18BA0043F184 /* TISpringLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */; };
+		E2D18ED1163C1A020043F184 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ED0163C1A020043F184 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +35,12 @@
 		E2D18EBE163C18610043F184 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E2D18EC0163C18610043F184 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E2D18EC2163C18610043F184 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E2D18EC9163C18BA0043F184 /* TISpringLoadedRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISpringLoadedRotationView.h; path = ../../TISpringLoadedRotationView.h; sourceTree = "<group>"; };
-		E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedRotationView.m; path = ../../TISpringLoadedRotationView.m; sourceTree = "<group>"; };
+		E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISpringLoadedSpinnerView.h; path = ../../TISpringLoadedSpinnerView.h; sourceTree = "<group>"; };
+		E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedSpinnerView.m; path = ../../TISpringLoadedSpinnerView.m; sourceTree = "<group>"; };
 		E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISpringLoadedView.h; path = ../../TISpringLoadedView.h; sourceTree = "<group>"; };
 		E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedView.m; path = ../../TISpringLoadedView.m; sourceTree = "<group>"; };
+		E2D18ECF163C1A020043F184 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E2D18ED0163C1A020043F184 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +89,10 @@
 			children = (
 				E2D18EBB163C18610043F184 /* AppDelegate.h */,
 				E2D18EBC163C18610043F184 /* AppDelegate.m */,
-				E2D18EC9163C18BA0043F184 /* TISpringLoadedRotationView.h */,
-				E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */,
+				E2D18ECF163C1A020043F184 /* RootViewController.h */,
+				E2D18ED0163C1A020043F184 /* RootViewController.m */,
+				E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */,
+				E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */,
 				E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */,
 				E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */,
 				E2D18EB3163C18610043F184 /* Supporting Files */,
@@ -176,8 +181,9 @@
 			files = (
 				E2D18EB9163C18610043F184 /* main.m in Sources */,
 				E2D18EBD163C18610043F184 /* AppDelegate.m in Sources */,
-				E2D18ECD163C18BA0043F184 /* TISpringLoadedRotationView.m in Sources */,
+				E2D18ECD163C18BA0043F184 /* TISpringLoadedSpinnerView.m in Sources */,
 				E2D18ECE163C18BA0043F184 /* TISpringLoadedView.m in Sources */,
+				E2D18ED1163C1A020043F184 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

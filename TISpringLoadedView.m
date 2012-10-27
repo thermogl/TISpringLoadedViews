@@ -1,6 +1,6 @@
 //
 //  TISpringLoadedView.m
-//  SpringLoadedViews
+//  TISpringLoadedViews
 //
 //  Created by Tom Irving on 18/09/2012.
 //  Copyright (c) 2012 Tom Irving. All rights reserved.
@@ -9,8 +9,8 @@
 #import "TISpringLoadedView.h"
 #import <QuartzCore/QuartzCore.h>
 
-SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY){
-	SpringLoadedViewDistanceLimits limits;
+TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY){
+	TISpringLoadedViewDistanceLimits limits;
 	limits.negativeX = nX;
 	limits.positiveX = pX;
 	limits.negativeY = nY;
@@ -18,12 +18,12 @@ SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CG
 	return limits;
 }
 
-@interface SpringLoadedView (Private)
+@interface TISpringLoadedView (Private)
 - (void)positionLeftAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer;
 - (void)positionRightAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer;
 @end
 
-@implementation SpringLoadedView
+@implementation TISpringLoadedView
 @synthesize mass;
 @synthesize springConstant;
 @synthesize dampingCoefficient;
@@ -47,7 +47,7 @@ SpringLoadedViewDistanceLimits SpringLoadedViewDistanceLimitsMake(CGFloat nX, CG
 		mass = 1;
 		velocity = CGPointZero;
 		
-		panDistanceLimits = SpringLoadedViewDistanceLimitsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
+		panDistanceLimits = TISpringLoadedViewDistanceLimitsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
 		pannedBlock = nil;
 		panDragCoefficient = 1.0;
 		
