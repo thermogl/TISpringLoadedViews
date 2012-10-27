@@ -31,6 +31,7 @@ typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter
 	TISpringLoadedViewDistanceLimits panDistanceLimits;
 	TISpringLoadedViewPannedBlock pannedBlock;
 	CGFloat panDragCoefficient;
+	BOOL inheritsPanVelocity;
 	
 	UIPanGestureRecognizer * panGestureRecognizer;
 	
@@ -46,6 +47,7 @@ typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter
 @property (nonatomic, assign) TISpringLoadedViewDistanceLimits panDistanceLimits;
 @property (nonatomic, copy) TISpringLoadedViewPannedBlock pannedBlock;
 @property (nonatomic, assign) CGFloat panDragCoefficient;
+@property (nonatomic, assign) BOOL inheritsPanVelocity;
 @property (nonatomic, readonly) BOOL panning;
 @property (nonatomic, assign) TISpringLoadedView * leftAnchoredView;
 @property (nonatomic, assign) TISpringLoadedView * rightAnchoredView;

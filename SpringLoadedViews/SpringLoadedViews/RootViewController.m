@@ -22,6 +22,7 @@
 	[springLoadedView setRestCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))];
 	[springLoadedView setSpringConstant:500];
 	[springLoadedView setDampingCoefficient:10];
+	[springLoadedView setInheritsPanVelocity:YES];
 	[springLoadedView setBackgroundColor:[UIColor whiteColor]];
 	[self.view addSubview:springLoadedView];
 	[springLoadedView release];

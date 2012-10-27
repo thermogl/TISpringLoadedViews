@@ -31,6 +31,7 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 @synthesize panDistanceLimits;
 @synthesize restCenter;
 @synthesize pannedBlock;
+@synthesize inheritsPanVelocity;
 @synthesize springEnabled;
 @synthesize leftAnchoredView;
 @synthesize rightAnchoredView;
@@ -50,6 +51,7 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 		panDistanceLimits = TISpringLoadedViewDistanceLimitsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
 		pannedBlock = nil;
 		panDragCoefficient = 1.0;
+		inheritsPanVelocity = NO;
 		
 		panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasPanned:)];
 		[self addGestureRecognizer:panGestureRecognizer];
@@ -91,8 +93,7 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 #pragma mark - Panning
 - (void)viewWasPanned:(UIPanGestureRecognizer *)sender {
 	
-	CGPoint translation = CGPointApplyAffineTransform([sender translationInView:self.superview],
-													  CGAffineTransformMakeScale(panDragCoefficient, panDragCoefficient));
+	CGPoint translation = CGPointApplyAffineTransform([sender translationInView:self.superview], CGAffineTransformMakeScale(panDragCoefficient, panDragCoefficient));
 	CGPoint translatedCenter = CGPointMake(self.center.x + translation.x, self.center.y + translation.y);
 	
 	if (translation.x > 0 && (translatedCenter.x - restCenter.x) > panDistanceLimits.positiveX){
@@ -112,7 +113,10 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 	[self setCenter:CGPointMake(self.center.x + translation.x, self.center.y + translation.y)];
 	[sender setTranslation:CGPointZero inView:self.superview];
 	
-	if (pannedBlock) pannedBlock(self.center, restCenter, translation, [sender velocityInView:self.superview], (sender.state == UIGestureRecognizerStateEnded));
+	BOOL finished = (sender.state == UIGestureRecognizerStateEnded);
+	if (finished && inheritsPanVelocity) velocity = [sender velocityInView:self.superview];
+	
+	if (pannedBlock) pannedBlock(self.center, restCenter, translation, [sender velocityInView:self.superview], finished);
 	
 	[self positionLeftAnchoredViewsWithRecognizer:sender];
 	[self positionRightAnchoredViewsWithRecognizer:sender];
