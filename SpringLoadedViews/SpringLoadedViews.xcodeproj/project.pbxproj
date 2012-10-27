@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2D18EAD163C18610043F184 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D18EAC163C18610043F184 /* UIKit.framework */; };
+		E2D18EAF163C18610043F184 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D18EAE163C18610043F184 /* Foundation.framework */; };
+		E2D18EB1163C18610043F184 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D18EB0163C18610043F184 /* CoreGraphics.framework */; };
+		E2D18EB7163C18610043F184 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EB5163C18610043F184 /* InfoPlist.strings */; };
+		E2D18EB9163C18610043F184 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18EB8163C18610043F184 /* main.m */; };
+		E2D18EBD163C18610043F184 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18EBC163C18610043F184 /* AppDelegate.m */; };
+		E2D18EBF163C18610043F184 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EBE163C18610043F184 /* Default.png */; };
+		E2D18EC1163C18610043F184 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EC0163C18610043F184 /* Default@2x.png */; };
+		E2D18EC3163C18610043F184 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D18EC2163C18610043F184 /* Default-568h@2x.png */; };
+		E2D18ECD163C18BA0043F184 /* TISpringLoadedRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */; };
+		E2D18ECE163C18BA0043F184 /* TISpringLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E2D18EA8163C18610043F184 /* SpringLoadedViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpringLoadedViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2D18EAC163C18610043F184 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2D18EAE163C18610043F184 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2D18EB0163C18610043F184 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2D18EB4163C18610043F184 /* SpringLoadedViews-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpringLoadedViews-Info.plist"; sourceTree = "<group>"; };
+		E2D18EB6163C18610043F184 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2D18EB8163C18610043F184 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2D18EBA163C18610043F184 /* SpringLoadedViews-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpringLoadedViews-Prefix.pch"; sourceTree = "<group>"; };
+		E2D18EBB163C18610043F184 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E2D18EBC163C18610043F184 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2D18EBE163C18610043F184 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E2D18EC0163C18610043F184 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E2D18EC2163C18610043F184 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E2D18EC9163C18BA0043F184 /* TISpringLoadedRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISpringLoadedRotationView.h; path = ../../TISpringLoadedRotationView.h; sourceTree = "<group>"; };
+		E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedRotationView.m; path = ../../TISpringLoadedRotationView.m; sourceTree = "<group>"; };
+		E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISpringLoadedView.h; path = ../../TISpringLoadedView.h; sourceTree = "<group>"; };
+		E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISpringLoadedView.m; path = ../../TISpringLoadedView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2D18EA5163C18610043F184 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2D18EAD163C18610043F184 /* UIKit.framework in Frameworks */,
+				E2D18EAF163C18610043F184 /* Foundation.framework in Frameworks */,
+				E2D18EB1163C18610043F184 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2D18E9D163C18610043F184 = {
+			isa = PBXGroup;
+			children = (
+				E2D18EB2163C18610043F184 /* SpringLoadedViews */,
+				E2D18EAB163C18610043F184 /* Frameworks */,
+				E2D18EA9163C18610043F184 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2D18EA9163C18610043F184 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2D18EA8163C18610043F184 /* SpringLoadedViews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2D18EAB163C18610043F184 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2D18EAC163C18610043F184 /* UIKit.framework */,
+				E2D18EAE163C18610043F184 /* Foundation.framework */,
+				E2D18EB0163C18610043F184 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2D18EB2163C18610043F184 /* SpringLoadedViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2D18EBB163C18610043F184 /* AppDelegate.h */,
+				E2D18EBC163C18610043F184 /* AppDelegate.m */,
+				E2D18EC9163C18BA0043F184 /* TISpringLoadedRotationView.h */,
+				E2D18ECA163C18BA0043F184 /* TISpringLoadedRotationView.m */,
+				E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */,
+				E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */,
+				E2D18EB3163C18610043F184 /* Supporting Files */,
+			);
+			path = SpringLoadedViews;
+			sourceTree = "<group>";
+		};
+		E2D18EB3163C18610043F184 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2D18EB4163C18610043F184 /* SpringLoadedViews-Info.plist */,
+				E2D18EB5163C18610043F184 /* InfoPlist.strings */,
+				E2D18EB8163C18610043F184 /* main.m */,
+				E2D18EBA163C18610043F184 /* SpringLoadedViews-Prefix.pch */,
+				E2D18EBE163C18610043F184 /* Default.png */,
+				E2D18EC0163C18610043F184 /* Default@2x.png */,
+				E2D18EC2163C18610043F184 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2D18EA7163C18610043F184 /* SpringLoadedViews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2D18EC6163C18610043F184 /* Build configuration list for PBXNativeTarget "SpringLoadedViews" */;
+			buildPhases = (
+				E2D18EA4163C18610043F184 /* Sources */,
+				E2D18EA5163C18610043F184 /* Frameworks */,
+				E2D18EA6163C18610043F184 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpringLoadedViews;
+			productName = SpringLoadedViews;
+			productReference = E2D18EA8163C18610043F184 /* SpringLoadedViews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2D18E9F163C18610043F184 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Tom Irving";
+			};
+			buildConfigurationList = E2D18EA2163C18610043F184 /* Build configuration list for PBXProject "SpringLoadedViews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E2D18E9D163C18610043F184;
+			productRefGroup = E2D18EA9163C18610043F184 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2D18EA7163C18610043F184 /* SpringLoadedViews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2D18EA6163C18610043F184 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2D18EB7163C18610043F184 /* InfoPlist.strings in Resources */,
+				E2D18EBF163C18610043F184 /* Default.png in Resources */,
+				E2D18EC1163C18610043F184 /* Default@2x.png in Resources */,
+				E2D18EC3163C18610043F184 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2D18EA4163C18610043F184 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2D18EB9163C18610043F184 /* main.m in Sources */,
+				E2D18EBD163C18610043F184 /* AppDelegate.m in Sources */,
+				E2D18ECD163C18BA0043F184 /* TISpringLoadedRotationView.m in Sources */,
+				E2D18ECE163C18BA0043F184 /* TISpringLoadedView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E2D18EB5163C18610043F184 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2D18EB6163C18610043F184 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2D18EC4163C18610043F184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2D18EC5163C18610043F184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2D18EC7163C18610043F184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpringLoadedViews/SpringLoadedViews-Prefix.pch";
+				INFOPLIST_FILE = "SpringLoadedViews/SpringLoadedViews-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2D18EC8163C18610043F184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpringLoadedViews/SpringLoadedViews-Prefix.pch";
+				INFOPLIST_FILE = "SpringLoadedViews/SpringLoadedViews-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2D18EA2163C18610043F184 /* Build configuration list for PBXProject "SpringLoadedViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2D18EC4163C18610043F184 /* Debug */,
+				E2D18EC5163C18610043F184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2D18EC6163C18610043F184 /* Build configuration list for PBXNativeTarget "SpringLoadedViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2D18EC7163C18610043F184 /* Debug */,
+				E2D18EC8163C18610043F184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2D18E9F163C18610043F184 /* Project object */;
+}
