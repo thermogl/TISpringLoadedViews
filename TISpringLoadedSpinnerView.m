@@ -21,7 +21,7 @@
 		[self setBackgroundColor:[UIColor clearColor]];
 		[self setOpaque:NO];
 		
-		rotation = -90;
+		rotation = 0;
 		restRotation = 0;
 		springConstant = 200;
 		dampingCoefficient = 15;
