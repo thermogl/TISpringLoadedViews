@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
-
 typedef struct {
 	CGFloat negativeX;
 	CGFloat positiveX;
@@ -18,6 +16,7 @@ typedef struct {
 } TISpringLoadedViewDistanceLimits;
 
 TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY);
+typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
 
 @interface TISpringLoadedView : UIView {
 	

@@ -60,6 +60,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E28422F9163C206A0032DF66 /* TISpringLoadedViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */,
+				E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */,
+				E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */,
+				E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */,
+			);
+			name = TISpringLoadedViews;
+			sourceTree = "<group>";
+		};
 		E2D18E9D163C18610043F184 = {
 			isa = PBXGroup;
 			children = (
@@ -95,10 +106,7 @@
 				E2D18EBC163C18610043F184 /* AppDelegate.m */,
 				E2D18ECF163C1A020043F184 /* RootViewController.h */,
 				E2D18ED0163C1A020043F184 /* RootViewController.m */,
-				E2D18EC9163C18BA0043F184 /* TISpringLoadedSpinnerView.h */,
-				E2D18ECA163C18BA0043F184 /* TISpringLoadedSpinnerView.m */,
-				E2D18ECB163C18BA0043F184 /* TISpringLoadedView.h */,
-				E2D18ECC163C18BA0043F184 /* TISpringLoadedView.m */,
+				E28422F9163C206A0032DF66 /* TISpringLoadedViews */,
 				E2D18EB3163C18610043F184 /* Supporting Files */,
 			);
 			path = SpringLoadedViews;
