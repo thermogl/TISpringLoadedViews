@@ -53,7 +53,7 @@
 - (void)drawRect:(CGRect)rect {
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetFillColor(context, (CGFloat[4]){0.6, 0.6, 0.6, 1});
+	CGContextSetFillColor(context, (CGFloat[4]){0.4, 0.4, 0.4, 1});
 	
 	CGFloat divisionX = self.bounds.size.width / 3;
 	CGFloat divisionY = self.bounds.size.height / 3;

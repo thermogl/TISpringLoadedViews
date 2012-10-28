@@ -24,7 +24,7 @@
 	[springLoadedView release];
 	
 	// Like the one in the Letterpress app by Loren Brichter (atebits.com)
-	spinnerView = [[TISpringLoadedSpinnerView alloc] initWithFrame:CGRectInset(springLoadedView.bounds, 10, 10)];
+	spinnerView = [[TISpringLoadedSpinnerView alloc] initWithFrame:CGRectInset(springLoadedView.bounds, 15, 15)];
 	[springLoadedView addSubview:spinnerView];
 	[spinnerView release];
 	
