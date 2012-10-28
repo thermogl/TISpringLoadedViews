@@ -27,7 +27,6 @@
 		dampingCoefficient = 15;
 		mass = 1;
 		velocity = 0;
-		rotationCount = 0;
 	}
 	
 	return self;
@@ -47,15 +46,7 @@
 		
 		[self setTransform:CGAffineTransformMakeRotation(rotation * M_PI / 180)];
 		
-		if (fabsf(velocity) < 1){
-			restRotation += 90;
-			rotationCount++;
-			
-			if (rotationCount > 7){
-				restRotation -= 180;
-				rotationCount = 0;
-			}
-		}
+		if (fabsf(velocity) < 1) restRotation += 90 * (arc4random() % 2 ? 1 : -1);
 	}
 }
 

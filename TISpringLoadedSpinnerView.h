@@ -16,7 +16,6 @@
 	CGFloat dampingCoefficient;
 	CGFloat mass;
 	CGFloat velocity;
-	NSInteger rotationCount;
 }
 
 @property (nonatomic, assign) CGFloat springConstant;
