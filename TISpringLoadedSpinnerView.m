@@ -46,7 +46,7 @@
 		
 		[self setTransform:CGAffineTransformMakeRotation(rotation * M_PI / 180)];
 		
-		if (fabsf(velocity) < 1) restRotation += 90 * (arc4random() % 2 ? 1 : -1);
+		if (fabsf(velocity) < 1) restRotation += (arc4random() & 2 ? 90 : -90);
 	}
 }
 
