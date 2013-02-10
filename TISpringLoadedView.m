@@ -9,15 +9,6 @@
 #import "TISpringLoadedView.h"
 #import <QuartzCore/QuartzCore.h>
 
-TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY){
-	TISpringLoadedViewDistanceLimits limits;
-	limits.negativeX = nX;
-	limits.positiveX = pX;
-	limits.negativeY = nY;
-	limits.positiveY = pY;
-	return limits;
-}
-
 @interface TISpringLoadedView (Private)
 - (void)positionLeftAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer;
 - (void)positionRightAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer;
@@ -48,7 +39,7 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 		mass = 1;
 		velocity = CGPointZero;
 		
-		panDistanceLimits = TISpringLoadedViewDistanceLimitsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
+		panDistanceLimits = UIEdgeInsetsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
 		pannedBlock = nil;
 		panDragCoefficient = 1.0;
 		inheritsPanVelocity = NO;
@@ -96,18 +87,18 @@ TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX
 	CGPoint translation = CGPointApplyAffineTransform([sender translationInView:self.superview], CGAffineTransformMakeScale(panDragCoefficient, panDragCoefficient));
 	CGPoint translatedCenter = CGPointMake(self.center.x + translation.x, self.center.y + translation.y);
 	
-	if (translation.x > 0 && (translatedCenter.x - restCenter.x) > panDistanceLimits.positiveX){
-		translation.x -= (translatedCenter.x - restCenter.x) - panDistanceLimits.positiveX;
+	if (translation.x > 0 && (translatedCenter.x - restCenter.x) > panDistanceLimits.right){
+		translation.x -= (translatedCenter.x - restCenter.x) - panDistanceLimits.right;
 	}
-	else if (translation.x < 0 && (restCenter.x - translatedCenter.x) > panDistanceLimits.negativeX){
-		translation.x += (restCenter.x - translatedCenter.x) - panDistanceLimits.negativeX;
+	else if (translation.x < 0 && (restCenter.x - translatedCenter.x) > panDistanceLimits.left){
+		translation.x += (restCenter.x - translatedCenter.x) - panDistanceLimits.left;
 	}
 	
-	if (translation.y > 0 && (translatedCenter.y - restCenter.y) > panDistanceLimits.positiveY){
-		translation.y -= (translatedCenter.y - restCenter.y) - panDistanceLimits.positiveY;
+	if (translation.y > 0 && (translatedCenter.y - restCenter.y) > panDistanceLimits.bottom){
+		translation.y -= (translatedCenter.y - restCenter.y) - panDistanceLimits.bottom;
 	}
-	else if (translation.y < 0 && (restCenter.y - translatedCenter.y) > panDistanceLimits.negativeY){
-		translation.y += (restCenter.y - translatedCenter.y) - panDistanceLimits.negativeY;
+	else if (translation.y < 0 && (restCenter.y - translatedCenter.y) > panDistanceLimits.top){
+		translation.y += (restCenter.y - translatedCenter.y) - panDistanceLimits.top;
 	}
 	
 	[self setCenter:CGPointMake(self.center.x + translation.x, self.center.y + translation.y)];

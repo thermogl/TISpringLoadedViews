@@ -28,14 +28,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef struct {
-	CGFloat negativeX;
-	CGFloat positiveX;
-	CGFloat negativeY;
-	CGFloat positiveY;
-} TISpringLoadedViewDistanceLimits;
-
-TISpringLoadedViewDistanceLimits TISpringLoadedViewDistanceLimitsMake(CGFloat nX, CGFloat pX, CGFloat nY, CGFloat pY);
 typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
 
 @interface TISpringLoadedView : UIView {
@@ -48,7 +40,7 @@ typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter
 	CGFloat mass;
 	CGPoint velocity;
 	
-	TISpringLoadedViewDistanceLimits panDistanceLimits;
+	UIEdgeInsets panDistanceLimits;
 	TISpringLoadedViewPannedBlock pannedBlock;
 	CGFloat panDragCoefficient;
 	BOOL inheritsPanVelocity;
@@ -64,7 +56,7 @@ typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter
 @property (nonatomic, assign) CGFloat dampingCoefficient;
 @property (nonatomic, assign) CGPoint restCenter;
 @property (nonatomic, assign) CGFloat mass;
-@property (nonatomic, assign) TISpringLoadedViewDistanceLimits panDistanceLimits;
+@property (nonatomic, assign) UIEdgeInsets panDistanceLimits;
 @property (nonatomic, copy) TISpringLoadedViewPannedBlock pannedBlock;
 @property (nonatomic, assign) CGFloat panDragCoefficient;
 @property (nonatomic, assign) BOOL inheritsPanVelocity;
