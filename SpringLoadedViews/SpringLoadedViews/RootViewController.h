@@ -8,12 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@class TISpringLoadedSpinnerView, TISpringLoadedView;
-@interface RootViewController : UIViewController {
-	
-	TISpringLoadedSpinnerView * spinnerView;
-	TISpringLoadedView * springLoadedView;
-	CADisplayLink * displayLink;
-}
-
+@interface RootViewController : UIViewController
 @end

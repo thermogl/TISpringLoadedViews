@@ -30,27 +30,7 @@
 
 typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter, CGPoint translation, CGPoint velocity, BOOL finished);
 
-@interface TISpringLoadedView : UIView {
-	
-	BOOL springEnabled;
-	
-	CGPoint restCenter;
-	CGFloat springConstant;
-	CGFloat dampingCoefficient;
-	CGFloat mass;
-	CGPoint velocity;
-	
-	UIEdgeInsets panDistanceLimits;
-	TISpringLoadedViewPannedBlock pannedBlock;
-	CGFloat panDragCoefficient;
-	BOOL inheritsPanVelocity;
-	
-	UIPanGestureRecognizer * panGestureRecognizer;
-	
-	TISpringLoadedView * leftAnchoredView;
-	TISpringLoadedView * rightAnchoredView;
-}
-
+@interface TISpringLoadedView : UIView
 @property (nonatomic, assign) BOOL springEnabled;
 @property (nonatomic, assign) CGFloat springConstant;
 @property (nonatomic, assign) CGFloat dampingCoefficient;

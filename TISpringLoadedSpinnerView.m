@@ -9,10 +9,14 @@
 #import "TISpringLoadedSpinnerView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation TISpringLoadedSpinnerView
-@synthesize springConstant;
-@synthesize dampingCoefficient;
-@synthesize mass;
+@implementation TISpringLoadedSpinnerView {
+	CGFloat _rotation;
+	CGFloat _restRotation;
+	CGFloat _velocity;
+}
+@synthesize springConstant = _springConstant;
+@synthesize dampingCoefficient = _dampingCoefficient;
+@synthesize mass = _mass;
 
 - (id)initWithFrame:(CGRect)frame {
 	
@@ -21,12 +25,12 @@
 		[self setBackgroundColor:[UIColor clearColor]];
 		[self setOpaque:NO];
 		
-		rotation = 0;
-		restRotation = 0;
-		springConstant = 200;
-		dampingCoefficient = 15;
-		mass = 1;
-		velocity = 0;
+		_rotation = 0;
+		_restRotation = 0;
+		_springConstant = 200;
+		_dampingCoefficient = 15;
+		_mass = 1;
+		_velocity = 0;
 	}
 	
 	return self;
@@ -36,17 +40,17 @@
 	
 	for (int i = 0; i < displayLink.frameInterval; i++){
 		
-		CGFloat displacement = rotation - restRotation;
-		CGFloat kx = springConstant * displacement;
-		CGFloat bv = dampingCoefficient * velocity;
-		CGFloat acceleration = (kx + bv) / mass;
+		CGFloat displacement = _rotation - _restRotation;
+		CGFloat kx = _springConstant * displacement;
+		CGFloat bv = _dampingCoefficient * _velocity;
+		CGFloat acceleration = (kx + bv) / _mass;
 		
-		velocity -= (acceleration * displayLink.duration);
-		rotation += (velocity * displayLink.duration);
+		_velocity -= (acceleration * displayLink.duration);
+		_rotation += (_velocity * displayLink.duration);
 		
-		[self setTransform:CGAffineTransformMakeRotation(rotation * M_PI / 180)];
+		[self setTransform:CGAffineTransformMakeRotation(_rotation * M_PI / 180)];
 		
-		if (fabsf(velocity) < 1) restRotation += (arc4random() & 2 ? 90 : -90);
+		if (fabsf(_velocity) < 1) _restRotation += (arc4random() & 2 ? 90 : -90);
 	}
 }
 

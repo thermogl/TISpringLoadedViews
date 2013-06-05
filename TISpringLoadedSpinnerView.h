@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TISpringLoadedSpinnerView : UIView {
-	
-	CGFloat rotation;
-	CGFloat restRotation;
-	CGFloat springConstant;
-	CGFloat dampingCoefficient;
-	CGFloat mass;
-	CGFloat velocity;
-}
-
+@interface TISpringLoadedSpinnerView : UIView
 @property (nonatomic, assign) CGFloat springConstant;
 @property (nonatomic, assign) CGFloat dampingCoefficient;
 @property (nonatomic, assign) CGFloat mass;

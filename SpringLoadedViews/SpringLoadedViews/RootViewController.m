@@ -10,41 +10,45 @@
 #import "TISpringLoadedSpinnerView.h"
 #import "TISpringLoadedView.h"
 
-@implementation RootViewController
+@implementation RootViewController {
+	TISpringLoadedSpinnerView * _spinnerView;
+	TISpringLoadedView * _springLoadedView;
+	CADisplayLink * _displayLink;
+}
 
 - (void)viewDidLoad {
 	
-	springLoadedView = [[TISpringLoadedView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-	[springLoadedView setRestCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))]; // Set where the view should spring back to.
-	[springLoadedView setSpringConstant:500]; // Set a spring constant. Effectively, as you increase this, the speed at which the spring returns to rest increases
-	[springLoadedView setDampingCoefficient:15]; // A damping coefficient. Shouldn't be negative or you'll bounce off screen.
-	[springLoadedView setInheritsPanVelocity:YES]; // Setting to YES allows you to throw the view. Doesn't play nice with panDistanceLimits.
-	[springLoadedView setBackgroundColor:[UIColor whiteColor]];
-	[self.view addSubview:springLoadedView];
-	[springLoadedView release];
+	_springLoadedView = [[TISpringLoadedView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	[_springLoadedView setRestCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))]; // Set where the view should spring back to.
+	[_springLoadedView setSpringConstant:500]; // Set a spring constant. Effectively, as you increase this, the speed at which the spring returns to rest increases
+	[_springLoadedView setDampingCoefficient:15]; // A damping coefficient. Shouldn't be negative or you'll bounce off screen.
+	[_springLoadedView setInheritsPanVelocity:YES]; // Setting to YES allows you to throw the view. Doesn't play nice with panDistanceLimits.
+	[_springLoadedView setBackgroundColor:[UIColor whiteColor]];
+	[self.view addSubview:_springLoadedView];
+	[_springLoadedView release];
 	
 	// Like the one in the Letterpress app by Loren Brichter (atebits.com)
-	spinnerView = [[TISpringLoadedSpinnerView alloc] initWithFrame:CGRectInset(springLoadedView.bounds, 15, 15)];
-	[springLoadedView addSubview:spinnerView];
-	[spinnerView release];
+	_spinnerView = [[TISpringLoadedSpinnerView alloc] initWithFrame:CGRectInset(_springLoadedView.bounds, 15, 15)];
+	[_springLoadedView addSubview:_spinnerView];
+	[_spinnerView release];
 	
 	// Create the display link. I use one to handle all the views.
-	displayLink = [[CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)] retain];
-	[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:(id)kCFRunLoopCommonModes];
+	_displayLink = [[CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)] retain];
+	[_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:(id)kCFRunLoopCommonModes];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-	[springLoadedView setRestCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))];
+	[_springLoadedView setRestCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))];
 }
 
 - (void)displayLinkTick:(CADisplayLink *)link {
-	[spinnerView simulateSpringWithDisplayLink:link];
-	[springLoadedView simulateSpringWithDisplayLink:link];
+	[_spinnerView simulateSpringWithDisplayLink:link];
+	[_springLoadedView simulateSpringWithDisplayLink:link];
 }
 
 - (void)dealloc {
-	[displayLink invalidate];
-	[displayLink release];
+	[_displayLink invalidate];
+	[_displayLink release];
 	[super dealloc];
 }
 

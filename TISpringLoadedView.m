@@ -14,39 +14,42 @@
 - (void)positionRightAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer;
 @end
 
-@implementation TISpringLoadedView
-@synthesize mass;
-@synthesize springConstant;
-@synthesize dampingCoefficient;
-@synthesize panDragCoefficient;
-@synthesize panDistanceLimits;
-@synthesize restCenter;
-@synthesize pannedBlock;
-@synthesize inheritsPanVelocity;
-@synthesize springEnabled;
-@synthesize leftAnchoredView;
-@synthesize rightAnchoredView;
+@implementation TISpringLoadedView {
+	CGPoint _velocity;
+	UIPanGestureRecognizer * _panGestureRecognizer;
+}
+@synthesize mass = _mass;
+@synthesize springConstant = _springConstant;
+@synthesize dampingCoefficient = _dampingCoefficient;
+@synthesize panDragCoefficient = _panDragCoefficient;
+@synthesize panDistanceLimits = _panDistanceLimits;
+@synthesize restCenter = _restCenter;
+@synthesize pannedBlock = _pannedBlock;
+@synthesize inheritsPanVelocity = _inheritsPanVelocity;
+@synthesize springEnabled = _springEnabled;
+@synthesize leftAnchoredView = _leftAnchoredView;
+@synthesize rightAnchoredView = _rightAnchoredView;
 
 - (id)initWithFrame:(CGRect)frame {
 	
     if ((self = [super initWithFrame:frame])) {
 		
-		springEnabled = YES;
+		_springEnabled = YES;
 		
-		restCenter = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
-		springConstant = 250;
-		dampingCoefficient = 20;
-		mass = 1;
-		velocity = CGPointZero;
+		_restCenter = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+		_springConstant = 250;
+		_dampingCoefficient = 20;
+		_mass = 1;
+		_velocity = CGPointZero;
 		
-		panDistanceLimits = UIEdgeInsetsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
-		pannedBlock = nil;
-		panDragCoefficient = 1.0;
-		inheritsPanVelocity = NO;
+		_panDistanceLimits = UIEdgeInsetsMake(CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX, CGFLOAT_MAX);
+		_pannedBlock = nil;
+		_panDragCoefficient = 1.0;
+		_inheritsPanVelocity = NO;
 		
-		panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasPanned:)];
-		[self addGestureRecognizer:panGestureRecognizer];
-		[panGestureRecognizer release];
+		_panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasPanned:)];
+		[self addGestureRecognizer:_panGestureRecognizer];
+		[_panGestureRecognizer release];
     }
 	
     return self;
@@ -54,28 +57,28 @@
 
 #pragma mark - Property Overrides
 - (BOOL)panning {
-	return (panGestureRecognizer.state == UIGestureRecognizerStateChanged);
+	return (_panGestureRecognizer.state == UIGestureRecognizerStateChanged);
 }
 
 #pragma mark - Physics
 - (void)simulateSpringWithDisplayLink:(CADisplayLink *)displayLink {
 	
-	if (springEnabled && !self.panning){
+	if (_springEnabled && !self.panning){
 		for (int i = 0; i < displayLink.frameInterval; i++){
 			
-			CGPoint displacement = CGPointMake(self.center.x - restCenter.x,
-											   self.center.y - restCenter.y);
+			CGPoint displacement = CGPointMake(self.center.x - _restCenter.x,
+											   self.center.y - _restCenter.y);
 			
-			CGPoint kx = CGPointMake(springConstant * displacement.x, springConstant * displacement.y);
-			CGPoint bv = CGPointMake(dampingCoefficient	* velocity.x, dampingCoefficient * velocity.y);
-			CGPoint acceleration = CGPointMake((kx.x + bv.x) / mass, (kx.y + bv.y) / mass);
+			CGPoint kx = CGPointMake(_springConstant * displacement.x, _springConstant * displacement.y);
+			CGPoint bv = CGPointMake(_dampingCoefficient	* _velocity.x, _dampingCoefficient * _velocity.y);
+			CGPoint acceleration = CGPointMake((kx.x + bv.x) / _mass, (kx.y + bv.y) / _mass);
 			
-			velocity.x -= (acceleration.x * displayLink.duration);
-			velocity.y -= (acceleration.y * displayLink.duration);
+			_velocity.x -= (acceleration.x * displayLink.duration);
+			_velocity.y -= (acceleration.y * displayLink.duration);
 			
 			CGPoint newCenter = self.center;
-			newCenter.x += (velocity.x * displayLink.duration);
-			newCenter.y += (velocity.y * displayLink.duration);
+			newCenter.x += (_velocity.x * displayLink.duration);
+			newCenter.y += (_velocity.y * displayLink.duration);
 			[self setCenter:newCenter];
 		}
 	}
@@ -84,30 +87,30 @@
 #pragma mark - Panning
 - (void)viewWasPanned:(UIPanGestureRecognizer *)sender {
 	
-	CGPoint translation = CGPointApplyAffineTransform([sender translationInView:self.superview], CGAffineTransformMakeScale(panDragCoefficient, panDragCoefficient));
+	CGPoint translation = CGPointApplyAffineTransform([sender translationInView:self.superview], CGAffineTransformMakeScale(_panDragCoefficient, _panDragCoefficient));
 	CGPoint translatedCenter = CGPointMake(self.center.x + translation.x, self.center.y + translation.y);
 	
-	if (translation.x > 0 && (translatedCenter.x - restCenter.x) > panDistanceLimits.right){
-		translation.x -= (translatedCenter.x - restCenter.x) - panDistanceLimits.right;
+	if (translation.x > 0 && (translatedCenter.x - _restCenter.x) > _panDistanceLimits.right){
+		translation.x -= (translatedCenter.x - _restCenter.x) - _panDistanceLimits.right;
 	}
-	else if (translation.x < 0 && (restCenter.x - translatedCenter.x) > panDistanceLimits.left){
-		translation.x += (restCenter.x - translatedCenter.x) - panDistanceLimits.left;
+	else if (translation.x < 0 && (_restCenter.x - translatedCenter.x) > _panDistanceLimits.left){
+		translation.x += (_restCenter.x - translatedCenter.x) - _panDistanceLimits.left;
 	}
 	
-	if (translation.y > 0 && (translatedCenter.y - restCenter.y) > panDistanceLimits.bottom){
-		translation.y -= (translatedCenter.y - restCenter.y) - panDistanceLimits.bottom;
+	if (translation.y > 0 && (translatedCenter.y - _restCenter.y) > _panDistanceLimits.bottom){
+		translation.y -= (translatedCenter.y - _restCenter.y) - _panDistanceLimits.bottom;
 	}
-	else if (translation.y < 0 && (restCenter.y - translatedCenter.y) > panDistanceLimits.top){
-		translation.y += (restCenter.y - translatedCenter.y) - panDistanceLimits.top;
+	else if (translation.y < 0 && (_restCenter.y - translatedCenter.y) > _panDistanceLimits.top){
+		translation.y += (_restCenter.y - translatedCenter.y) - _panDistanceLimits.top;
 	}
 	
 	[self setCenter:CGPointMake(self.center.x + translation.x, self.center.y + translation.y)];
 	[sender setTranslation:CGPointZero inView:self.superview];
 	
 	BOOL finished = (sender.state == UIGestureRecognizerStateEnded);
-	if (finished && inheritsPanVelocity) velocity = [sender velocityInView:self.superview];
+	if (finished && _inheritsPanVelocity) _velocity = [sender velocityInView:self.superview];
 	
-	if (pannedBlock) pannedBlock(self.center, restCenter, translation, [sender velocityInView:self.superview], finished);
+	if (_pannedBlock) _pannedBlock(self.center, _restCenter, translation, [sender velocityInView:self.superview], finished);
 	
 	[self positionLeftAnchoredViewsWithRecognizer:sender];
 	[self positionRightAnchoredViewsWithRecognizer:sender];
@@ -115,37 +118,37 @@
 
 - (void)positionLeftAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer {
 	
-	if (leftAnchoredView){
+	if (_leftAnchoredView){
 		BOOL stopSpringing = NO;
-		if ((stopSpringing = (CGRectGetMinX(self.frame) > (leftAnchoredView.restCenter.x + leftAnchoredView.bounds.size.width / 2)))){
-			CGRect newFrame = leftAnchoredView.frame;
-			newFrame.origin.x = CGRectGetMinX(self.frame) - leftAnchoredView.frame.size.width;
-			[leftAnchoredView setFrame:newFrame];
+		if ((stopSpringing = (CGRectGetMinX(self.frame) > (_leftAnchoredView.restCenter.x + _leftAnchoredView.bounds.size.width / 2)))){
+			CGRect newFrame = _leftAnchoredView.frame;
+			newFrame.origin.x = CGRectGetMinX(self.frame) - _leftAnchoredView.frame.size.width;
+			[_leftAnchoredView setFrame:newFrame];
 		}
 		
-		[leftAnchoredView setSpringEnabled:(!stopSpringing || recognizer.state == UIGestureRecognizerStateEnded)];
-		[leftAnchoredView positionLeftAnchoredViewsWithRecognizer:recognizer];
+		[_leftAnchoredView setSpringEnabled:(!stopSpringing || recognizer.state == UIGestureRecognizerStateEnded)];
+		[_leftAnchoredView positionLeftAnchoredViewsWithRecognizer:recognizer];
 	}
 }
 
 - (void)positionRightAnchoredViewsWithRecognizer:(UIPanGestureRecognizer *)recognizer {
 	
-	if (rightAnchoredView){
+	if (_rightAnchoredView){
 		BOOL stopSpringing = NO;
-		if ((stopSpringing = (CGRectGetMaxX(self.frame) < (rightAnchoredView.restCenter.x - rightAnchoredView.bounds.size.width / 2)))){
-			CGRect newFrame = rightAnchoredView.frame;
+		if ((stopSpringing = (CGRectGetMaxX(self.frame) < (_rightAnchoredView.restCenter.x - _rightAnchoredView.bounds.size.width / 2)))){
+			CGRect newFrame = _rightAnchoredView.frame;
 			newFrame.origin.x = CGRectGetMaxX(self.frame);
-			[rightAnchoredView setFrame:newFrame];
+			[_rightAnchoredView setFrame:newFrame];
 		}
 		
-		[rightAnchoredView setSpringEnabled:(!stopSpringing || recognizer.state == UIGestureRecognizerStateEnded)];
-		[rightAnchoredView positionRightAnchoredViewsWithRecognizer:recognizer];
+		[_rightAnchoredView setSpringEnabled:(!stopSpringing || recognizer.state == UIGestureRecognizerStateEnded)];
+		[_rightAnchoredView positionRightAnchoredViewsWithRecognizer:recognizer];
 	}
 }
 
 #pragma mark - Memory Management
 - (void)dealloc {
-	[pannedBlock release];
+	[_pannedBlock release];
 	[super dealloc];
 }
 
