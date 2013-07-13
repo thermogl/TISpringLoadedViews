@@ -17,16 +17,11 @@
 	
 	RootViewController * rootViewController = [[RootViewController alloc] init];
 	[window setRootViewController:rootViewController];
-	[rootViewController release];
 	
 	[window makeKeyAndVisible];
 	
     return YES;
 }
 
-- (void)dealloc {
-	[window release];
-    [super dealloc];
-}
 
 @end

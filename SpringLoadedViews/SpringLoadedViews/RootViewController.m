@@ -25,15 +25,13 @@
 	[_springLoadedView setInheritsPanVelocity:YES]; // Setting to YES allows you to throw the view. Doesn't play nice with panDistanceLimits.
 	[_springLoadedView setBackgroundColor:[UIColor whiteColor]];
 	[self.view addSubview:_springLoadedView];
-	[_springLoadedView release];
 	
 	// Like the one in the Letterpress app by Loren Brichter (atebits.com)
 	_spinnerView = [[TISpringLoadedSpinnerView alloc] initWithFrame:CGRectInset(_springLoadedView.bounds, 15, 15)];
 	[_springLoadedView addSubview:_spinnerView];
-	[_spinnerView release];
 	
 	// Create the display link. I use one to handle all the views.
-	_displayLink = [[CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)] retain];
+	_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)];
 	[_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:(id)kCFRunLoopCommonModes];
 }
 
@@ -48,8 +46,6 @@
 
 - (void)dealloc {
 	[_displayLink invalidate];
-	[_displayLink release];
-	[super dealloc];
 }
 
 @end

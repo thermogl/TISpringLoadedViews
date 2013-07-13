@@ -8,7 +8,7 @@ See the "SpringLoadedViews" app. The app demonstrates dragging a springy view an
 
 ## ARC?
 
-Nope.
+Yup
 
 ##License
 

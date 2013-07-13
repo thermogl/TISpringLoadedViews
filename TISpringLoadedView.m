@@ -49,7 +49,6 @@
 		
 		_panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasPanned:)];
 		[self addGestureRecognizer:_panGestureRecognizer];
-		[_panGestureRecognizer release];
     }
 	
     return self;
@@ -147,9 +146,5 @@
 }
 
 #pragma mark - Memory Management
-- (void)dealloc {
-	[_pannedBlock release];
-	[super dealloc];
-}
 
 @end

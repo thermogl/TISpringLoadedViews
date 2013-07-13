@@ -41,8 +41,8 @@ typedef void (^TISpringLoadedViewPannedBlock)(CGPoint center, CGPoint restCenter
 @property (nonatomic, assign) CGFloat panDragCoefficient;
 @property (nonatomic, assign) BOOL inheritsPanVelocity;
 @property (nonatomic, readonly) BOOL panning;
-@property (nonatomic, assign) TISpringLoadedView * leftAnchoredView;
-@property (nonatomic, assign) TISpringLoadedView * rightAnchoredView;
+@property (nonatomic, weak) TISpringLoadedView * leftAnchoredView;
+@property (nonatomic, weak) TISpringLoadedView * rightAnchoredView;
 
 - (void)simulateSpringWithDisplayLink:(CADisplayLink *)displayLink;
 
